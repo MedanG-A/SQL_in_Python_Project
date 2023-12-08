@@ -21,21 +21,27 @@ def read_csv(csvfile):
         with open(csvfile, newline='') as csvfile:
             csv_read = csv.reader(csvfile, delimiter=',')
 
-            csv_data_list = list(csv_read)
+            #csv_data_list = list(csv_read)
 
-            return csv_data_list
-            # iter_csv = iter(csv_read)
-            #
-            # next(iter_csv)
-            #
-            # for row in iter_csv:
-            #     print(row[-1])
+            row_list = []
+
+            iter_csv = iter(csv_read)
+
+            next(iter_csv)
+
+            for row in iter_csv:
+                row_list.append(row)
+
+            return row_list
 
     except FileNotFoundError:
         print("File not found in the path location")
 
 
 data_display = pd.DataFrame(read_csv("iris.csv"))
+print(data_display)
+
+
 
 data_display = data_display.rename(columns={0: 'SepalLength', 1: 'SepalWidth', 2: 'PetalLength', 3: 'PetalWidth', 4: 'Variety'})
 
@@ -45,7 +51,7 @@ data_display = data_display.rename(columns={0: 'SepalLength', 1: 'SepalWidth', 2
 # petal_width = data_display[3]
 # variety = data_display[4]
 
-# print(data_display)
+
 
 
 for index, row in data_display.iterrows():
