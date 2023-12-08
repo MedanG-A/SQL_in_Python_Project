@@ -18,4 +18,14 @@ cursor = docker_iris.cursor()
 
 results = cursor.execute("SELECT variety FROM iris_table GROUP BY variety;")
 iris_df = pd.DataFrame(results)
-print(iris_df)
+
+def species_to_txt(file, df):
+    try:
+        with open(file, "w") as file:
+            file.write(df)
+
+    except FileNotFoundError:
+        print("No file found at the file path")
+
+
+

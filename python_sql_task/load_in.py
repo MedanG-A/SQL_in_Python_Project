@@ -43,7 +43,8 @@ print(data_display)
 
 
 
-data_display = data_display.rename(columns={0: 'SepalLength', 1: 'SepalWidth', 2: 'PetalLength', 3: 'PetalWidth', 4: 'Variety'})
+data_display = data_display.rename(columns=
+                                   {0: 'SepalLength', 1: 'SepalWidth', 2: 'PetalLength', 3: 'PetalWidth', 4: 'Variety'})
 
 # sepal_length = data_display[0]
 # sepal_width = data_display[1]
